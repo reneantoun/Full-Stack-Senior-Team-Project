@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!--Included Vue CDN link-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Search Bar Implementation -->
+    <script>
+      $( document ).ready(function() {
+
+          document.getElementById('dropdown').innerHTML = 
+          '<option value="">All</option>';
+          <% for (var i = 0; i < categoryList.length; i++) { %>
+          document.getElementById('dropdown').innerHTML += 
+              '<option value=<%= categoryList[i]['categories_id'] %>><%= categoryList[i]['category_name'] %></option>';
+          <% } %>
+      });
+  </script>   
+
+    <!-- SFSU Feature-->
+    <script>
+      function setSearchText(value) {
+        var searchBar = document.getElementById('search-entry')
+        if (value == "1") {
+          searchBar.placeholder = "Enter Book SFSU Number or Title"
+        } else {
+          searchBar.placeholder = "Enter Title of Product"
+        }
+      }
+      $( document ).ready(function() {
+        setSearchText("All");
+      })
+    </script>
+
+  <!-- Account Implementation -->
+  <script>
+      $( document ).ready(function() {
+
+      <% if(session.user_id) { %>
+          var home = document.getElementById('home-link');
+          home.href = "/make-listing";
+
+          var login = document.getElementById('account');
+          login.innerHTML = 'ACCOUNT';
+          login.href = "/dashboard";
+          
+      <% } %>
+      });
+  </script>
+    <script>
+      function validateMessage() {
+        //Access form value
+        const message = document.getElementById('make-message').value;
+
+        //Check if any of the fields are missing
+        if (!message) {
+          return false;
+        }
+
+        //The form is valid, return true
+        return true;
+      }
+    </script>
+    <title>Send Message</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1842Y77P4J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1842Y77P4J');
+  </script>
+  <body>
+    <header id="nav-bar">
+      <a href="/" id="website-name">GATORMARKET</a>
+
+      <form id="search-form" class="form-layout" method="post" action="/">
+        <select name="category" id="dropdown" onchange="setSearchText(this.value);">>
+          <option value="">All</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Books">Books</option>
+          <option value="Misc">Misc</option>
+        </select>
+        <input
+          name="search"
+          id="search-entry"
+          type="text"
+          value=""
+          placeholder="Search"
+          maxlength="40"
+        />
+        <button type="button" id="search-enter" onclick="this.form.submit()">
+          <i id="search-icon" class="fa fa-search"></i>
+        </button>
+      </form>
+
+      <a href="/" id="home-link">UPLOAD</a>
+      <a id="account" href="./login.html">LOG IN/<br>REGISTER</a>
+    </header>
+
+    <div id="content-section">
+      <form id="message-seller-form" method="post" action="/messageSeller">
+        <div id="make-content">
+          <h1 id="make-content-title">Message Seller</h1>
+          <h2 id="make-title-title">Product: </h2>
+          <h3 id="import-title"><%=title%></h3>
+          <h2 id="make-condition-title">Condition:</h2>
+          <h3 id="import-condition"><%=condition%></h3>
+          <h2 id="make-price-title">Price:</h2>
+          <h3 id="import-price">$<%=price%></h3>
+          <h2>Message</h2>
+          <textarea
+            id="make-message"
+            rows="4"
+            autocomplete="off"
+            name="message"
+            type="text"
+            placeholder="Enter Description"
+            required
+          ></textarea>
+          <div id="make-choice">
+            <button id="listing-discard" formnovalidate href="./listing-info.html" >Discard</button>
+            <button id="listing-confirmation" onclick="if (validateMessage()) { this.form.submit(); } ">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

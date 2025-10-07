@@ -1,0 +1,229 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box
+}
+
+html{
+  background-color: #ffffff;
+}
+
+body{
+  margin: 0;
+  height: 100%;
+}
+
+/*Upper Site Section*/
+header{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  width: 100%;
+  padding: 20px 10px 20px 20px;
+  background-color: #94944b;
+}
+
+/*SFSU Logo*/
+.logo{
+  width: 140px;
+  align-self: flex-start;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+/*Title Page*/
+h1{
+  font-family: "Oswald", sans-serif;
+  align-self: center;
+  font-style: normal;
+  font-weight: 140;
+  text-align: center;
+  margin: 23px auto 23px auto;
+  line-height: 80px;
+  font-size: 60px;
+  color: white;
+  white-space: nowrap;
+}
+
+/*Home Link*/
+nav{
+  align-self: flex-end;
+  margin: 0px 40px 20px 15px;
+  border-radius: 15px;
+  list-style-type: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content:end;
+  
+}
+.nav-link{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 15px 30px 15px 30px;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  text-wrap: nowrap;
+}
+/*Nav Link Underline Effect*/
+.nav-link::after{
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: block;
+  margin: 10px 0px;
+  bottom: -4px;
+  left: 0;
+  opacity: 0;
+  transition: all 0.35s;
+}
+.nav-link:hover::after{
+  opacity: 1;
+}
+
+
+/*Main Page Information Body Section*/
+.info-section{
+  background-color:#ffffff;
+  box-shadow: inset 0 8px 6px -6px rgba(0, 0, 0, 0.534);
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+}
+
+.about-title{
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  line-height: 30px;
+  font-size: 30px;
+  padding: 15px;
+}
+
+.about{
+  flex-basis: 100%;
+  display: block;
+  text-align: center;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  padding: 20px 70px;
+}
+
+/*Each Project Members Button*/
+.info-card{
+  background-color:#ebebeb;
+  margin: 30px;
+  border: 2px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  width: 260px;
+  height: 350px;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  color: black;
+}
+/*Project Member Button Hover Effect*/
+.info-card:hover{
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.192);
+}
+
+/*Project Members Profile Picture*/
+.profile-icon{
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  height: 190px;
+}
+
+/*Project Members Name On Their Section*/
+.info-name{
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 50;
+  line-height: 30px;
+  font-size: 25px;
+}
+
+/*Individual Members Body Information Section*/
+.individual-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+/*Simple Member Information Card (Right Side of Body)*/
+.individual-card{
+  background-color:#ebebeb;
+  margin: 30px;
+  border: 2px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  width: 230px;
+  height: 350px;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  color: black;
+}
+
+/*Member Profile Pic In Individual Card*/
+.individual-icon{
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  width: 160px;
+}
+
+/*Members Role Status in Individual Card*/
+.individual-role{
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 50;
+  line-height: 30px;
+  font-size: 20px;
+  color: rgb(54, 54, 54);
+}
+
+/*Members Individual Summary Section*/
+.individual-summary{
+  background-color:#ebebeb;
+  margin: 30px;
+  border: 2px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  width: 320px;
+  height: 350px;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+/*Title In Members Individual Summary Section*/
+.individual-summary-title{
+  display: block;
+  align-self: center;
+  padding: 30px 0px 10px 0px;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px ;
+}
+
+/*Body Section in Members Individual Summary Section*/
+.individual-summary-body{
+  display: block;
+  padding: 15px 25px;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 23px;
+}

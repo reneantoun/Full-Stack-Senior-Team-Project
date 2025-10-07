@@ -1,0 +1,136 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box
+}
+
+:root{
+    --main-color: #00D563;
+    --main-hover: #02c45c;
+}
+
+html{
+  background-color: #FAF8F5;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+}
+
+header{
+    display: grid;
+    grid-template-columns: .7fr 1fr 0.2fr 0.3fr;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+
+@font-face{
+    font-family: Stellar;
+    src: url(Stellar.otf);
+}
+
+#website-name::first-letter{
+    color:var(--main-color);
+}
+
+#website-name{    
+    font-size: 50px;
+    margin: auto;
+    font-family: Stellar;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+#search-form{
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown{
+    text-align: center;
+    border-radius: 0px;
+    border: 1px solid rgb(163, 163, 163);
+    height: 50px;
+}
+
+#search-entry{
+    height: 50px;
+    border-color: rgb(163, 163, 163);
+    border-width: 1px;
+    border-style: solid solid solid none;
+    padding: 13px;
+    font-size: 15px;
+}
+
+#search-icon{
+    font-size: 16.5px;
+    color:white;
+}
+
+#search-enter{
+    border: none;
+    border-radius: 0px;
+    height: 50px;
+    width: 50px;
+    background-color: var(--main-color);
+}
+
+#search-enter:hover{
+    background-color: var(--main-hover);
+}
+
+#home-link{
+    font-family: 'IBM Plex Sans', monospace;
+    text-decoration: none;
+    color: black;
+    font-size: 23px;
+    letter-spacing: 4px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#home-link::after{
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: var(--main-color);
+    display: block;
+    margin: 10px 0px;
+    bottom: -4px;
+    left: 0;
+    opacity: 0;
+    transition: all 0.35s;
+}
+
+#home-link:hover::after{
+    opacity: 1;
+}
+
+#search-entry{
+    width: 50%;
+}
+
+#account{
+    font-family: 'IBM Plex Sans', monospace;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: var(--main-color);
+    color: black;
+    margin: auto;
+}
+
+#account:hover{
+    background-color: var(--main-hover);
+}
+

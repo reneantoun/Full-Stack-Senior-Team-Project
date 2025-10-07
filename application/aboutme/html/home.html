@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Meet the Team</title>
+    <!--Included Vue CDN link-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <header>
+      <!--Upper Section Of Home-->
+      <img src="../images/sfsu logo.png" class="logo">
+      <h1 class="heading">{{pageTitle}}</h1>
+      <nav>
+          <a href="#home" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <!--Body Section Of The Home-->
+    <div class="info-section">
+      <div class="about-title">About Us</div>
+      <div class="about">This is Team 2 of Professor Petkovic's CSC 648 course
+      </div>
+      <a class="info-card" href="maxwell.html">
+        <img src="../images/MaxProfilPic.jpeg" class="profile-icon" alt="">
+        <div class="info-name">Maxwell Lewis</div>
+      </a>
+      <a class="info-card" href="jackson.html">
+        <img src="../images/profilepicture.png" class="profile-icon" alt="">
+        <div class="info-name">Jackson Hill</div>
+      </a>
+      <a class="info-card" href="rene.html">
+        <img src="../images/profilepicture.png" class="profile-icon" alt="">
+        <div class="info-name">Rene Antoun</div>
+      </a>
+      <a class="info-card" href="jose.html">
+        <img src="../images/profilepicture.png" class="profile-icon" alt="">
+        <div class="info-name">Jose Rios</div>
+      </a>
+      <a class="info-card" href="javi.html">
+        <img src="../images/JaviProfilPic.jpg" class="profile-icon" alt="">
+        <div class="info-name">Javi Buenrostro</div>
+      </a>
+    </div>
+
+    <!--Vue Populating The Title-->
+    <script>
+      Vue.createApp({
+        data(){
+          return{
+            pageTitle: 'Meet the Team'
+          };
+        }
+      }).mount('.heading');
+    </script>
+
+  </body>
+</html>

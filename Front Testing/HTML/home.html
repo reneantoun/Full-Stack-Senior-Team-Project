@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Included Vue CDN link-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="nav-bar">
+        <h1 id="website-name">GATORMARKET</h1>
+
+        <form id="search-form" class="form-layout" method="post" action="/">
+            
+            <select name="category" id="dropdown">
+              <option value="">All</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Books">Books</option>
+              <option value="Misc">Misc</option>
+            </select>
+            <input name="search" id="search-entry" type="text" value="" placeholder="Search" >
+            <button type="button" id="search-enter" onclick="this.form.submit()"><i id="search-icon" class="fa fa-search"></i></button>
+        </form>
+
+        <a href="../HTML/home.html" id="home-link">HOME</a>
+        <button id="account">ACCOUNT</button>
+    </header>
+
+    <div id="content-section">
+
+    </div>
+
+</body>
+</html>

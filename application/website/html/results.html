@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Included Vue CDN link-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Search Bar Implementation -->
+    <script>
+      $( document ).ready(function() {
+
+          document.getElementById('dropdown').innerHTML = 
+          '<option value="">All</option>';
+          <% for (var i = 0; i < categoryList.length; i++) { %>
+            <% var id = categoryList[i]['categories_id'] %>
+          document.getElementById('dropdown').innerHTML += 
+              '<option value=<%= categoryList[i]['categories_id'] %>' + 
+                '<% if (category == id) { %> selected <% } %>' + 
+                '><%= categoryList[i]['category_name'] %></option>';
+          <% } %>
+      });
+  </script>   
+
+    <!-- SFSU Feature-->
+    <script>
+      function setSearchText(value) {
+        var searchBar = document.getElementById('search-entry')
+        if (value == "1") {
+          searchBar.placeholder = "Enter Book SFSU Number or Title"
+        } else {
+          searchBar.placeholder = "Enter Title of Product"
+        }
+      }
+      $( document ).ready(function() {
+        setSearchText("All");
+      })
+    </script>
+
+  <!-- Account Implementation -->
+  <script>
+      $( document ).ready(function() {
+
+      <% if(session.user_id) { %>
+          var home = document.getElementById('home-link');
+          home.href = "/make-listing";
+
+          var login = document.getElementById('account');
+          login.innerHTML = 'ACCOUNT';
+          login.href = "/dashboard";
+          
+      <% } %>
+      });
+  </script>
+    <script>
+        $( document ).ready(function() {
+  
+          //Reset list
+          document.getElementById('listing-count').innerHTML = "#<%= searchResult.length %>" + " LISTING(S)";
+  
+          document.getElementsByClassName('listing-section')[0].innerHTML = "";
+  
+          <% for (var i = 0; i < searchResult.length; i++) { %>
+          document.getElementsByClassName('listing-section')[0].innerHTML += 
+            '<form id="form1" method="post" action="/selectProduct">' +
+            '<a class="listing-card" href="javascript:;" onclick="parentNode.submit();">' + 
+                '<img class="listing-image" src="../images/items/<%= searchResult[i]['Image'] %>" alt="">' + 
+                '<h2 class="listing-name"><%= searchResult[i]['Name'] %></h2>' +
+                '<h2 class="listing-price">$<%= searchResult[i]['Price'] %></h2>' +
+                '<input type="hidden" name="itemId" value=<%=(i + 1)%>>';
+            '</a>' +
+            '</form>';
+  
+          <% } %>
+        });
+      </script>
+    <title>Listings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1842Y77P4J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1842Y77P4J');
+</script>
+<body>
+    <header id="nav-bar">
+        <a href="/" id="website-name">GATORMARKET</a>
+
+        <form id="search-form" class="form-layout" method="get">
+            <select name="category" id="dropdown" onchange="setSearchText(this.value);">
+                <option value="">All</option>
+                <option value="1" <% if (category == "1") { %> selected <% } %> >Books</option>
+                <option value="2" <% if (category == "2") { %> selected <% } %> >Electronics</option>
+                <option value="3" <% if (category == "3") { %> selected <% } %> >Misc</option>
+                <option value="4" <% if (category == "4") { %> selected <% } %> >Merchandise</option>
+                <option value="5" <% if (category == "5") { %> selected <% } %> >Free Items</option>
+              </select>
+            
+            <input name="search" id="search-entry" type="text" value="<%= searchTerm %>" placeholder="Search" >
+            <button type="submit" id="search-enter" onclick="this.form.submit()"><i id="search-icon" class="fa fa-search"></i></button>
+        </form>
+
+        <a href="/" id="home-link">UPLOAD</a>
+        <a id="account" href="./login.html">LOG IN/<br>REGISTER</a>
+    </header>
+    
+    <div id="content-section">
+
+        <div id="listing-count"># LISTING(S)</div>
+
+        <div class="listing-section"></div>
+
+        
+    </div>
+
+</body>
+</html>

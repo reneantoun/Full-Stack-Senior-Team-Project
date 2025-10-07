@@ -1,0 +1,944 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box
+}
+
+:root{
+    --main-color: #00D563;
+    --main-hover: #02bf5a;
+    --nav-color: #35374B;
+    --bg-color: #344955;
+    --bbg-color: #50727B;
+}
+
+/*home greeting font*/
+@font-face{
+    font-family: GSL;
+    src: url(./Fonts/GeneralSans-Light.otf);
+}
+
+@font-face{
+    font-family: GSM;
+    src: url(./Fonts/GeneralSans-Medium.otf);
+}
+
+@font-face{
+    font-family: RL;
+    src: url(./Fonts/Ranade-Light.otf);
+}
+
+/*all-cats bento font*/
+@font-face{
+    font-family: allcats;
+    src: url(./Fonts/Chillax-Light.otf);
+}
+
+/*books bento font*/
+@font-face{
+    font-family: books;
+    src: url(./Fonts/Excon-Black.otf);
+}
+
+/*miscellaneous bento font*/
+@font-face{
+    font-family: misc;
+    src: url(./Fonts/Tanker-Regular.otf);
+}
+
+/*electronics bento font*/
+@font-face{
+    font-family: electronics;
+    src: url(./Fonts/Panchang-Regular.otf);
+}
+
+/*wesbite name font*/
+@font-face{
+    font-family: BQP;
+    src: url(./Fonts/BasisGrotesquePro-Light.ttf);
+}
+
+/*listing count and listing card font*/
+@font-face{
+    font-family: Roboto;
+    src: url(./Fonts/Roboto-Light.ttf);
+}
+
+/**/
+@font-face{
+    font-family: Bebas-Neue;
+    src: url(./Fonts/BebasNeue-Regular.otf);
+}
+
+html{
+  background-color: var(--bg-color);
+}
+
+body{
+    margin: 0;
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+input{
+    outline: none
+}
+
+select{
+    outline: none;
+}
+
+#nav-bar{
+    margin: 20px 48px;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: .7fr 1fr 0.2fr 0.3fr;
+    align-items: center;
+    height: 110px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--nav-color);
+    box-shadow: 0 8px 6px -8px black;
+}
+
+#website-name::first-letter{
+    color:var(--main-color);
+}
+
+#website-name{    
+    font-size: 35px;
+    margin: auto;
+    font-family: BQP;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#search-form{
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown{
+    text-align: center;
+    height: 50px;
+    border: none;
+    background-color: rgb(229, 229, 229);
+    color: rgb(89, 89, 89);
+}
+
+#dropdown:focus{
+    background-color: #e6e6e6;
+}
+
+#search-entry{
+    height: 50px;
+    padding-left: 23px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: outline 0.22s;
+    border: none;
+    width: 50%;
+}
+
+#search-entry:focus{
+    outline: 2px solid #00D563;
+    outline-offset: -2px;
+}
+
+#search-icon{
+    font-size: 16.5px;
+    color:white;
+    padding-right: 4px;
+}
+
+#search-enter{
+    border: none;
+    border-radius: 0 10000px 10000px 0;
+    height: 50px;
+    width: 50px;
+    background-color: var(--main-color);
+    transition: background-color 0.2s;
+}
+
+#search-enter:hover{
+    background-color: var(--main-hover);
+}
+
+#home-link{
+    font-family: 'IBM Plex Sans', monospace;
+    text-decoration: none;
+    color: white;
+    font-size: 23px;
+    letter-spacing: 4px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#home-link::after{
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: var(--main-color);
+    display: block;
+    margin: 10px 0px;
+    bottom: -4px;
+    left: 0;
+    opacity: 0;
+    transition: all 0.35s;
+}
+
+#home-link:hover::after{
+    opacity: 1;
+}
+
+#account{
+    font-family: 'IBM Plex Sans', monospace;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 1.3px;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: var(--main-color);
+    color: black;
+    margin: auto;
+    transition: background-color 0.3s;
+}
+
+#account:hover{
+    background-color: var(--main-hover);
+}
+
+#content-section{
+    flex-direction: row;
+    margin: 30px 80px;
+}
+
+#home-content{
+    margin: auto;
+    width: 80%;
+    margin-top: 45px;
+    background-color: var(--bbg-color);
+    border-radius: 12px;
+}
+
+#greeting-header{
+    font-family: GSL;
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#bento-categories{
+    display: grid;
+    padding: 10px 30px 30px 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    grid-gap: 25px;
+    margin-bottom: 30px;
+}
+
+#bento-categories div{
+    border: 1px solid black;
+}
+
+#bento-categories div{
+    border-radius: 10px;
+    border: none;
+    transition: box-shadow 0.2s;
+}
+
+#bento-categories div:hover{
+    box-shadow: 0px 0px 8px 6px rgba(0, 0, 0, 0.192);
+}
+
+#bento-one{
+    grid-column: 1/3;
+    grid-row: 1/3;
+    background: linear-gradient(220.55deg, #FFD439 0%, #FF7A00 100%);
+    font-family: books;
+    text-align: center;
+    font-size: 7vw;
+    min-width: 100%;
+    line-height: 265px;
+    overflow: hidden;
+}
+
+
+#bento-two{
+    grid-column: 3/5;
+    background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
+    font-family: misc;
+    text-align: center;
+    font-size: 4vw;
+    max-width: 100%;
+    line-height: 120px;
+    overflow: hidden;
+}
+
+#bento-three{
+    grid-column: 3/5;
+    background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%);
+    font-family: electronics;
+    text-align: center;
+    font-size: 2.5vw;
+    max-width: 100;
+    line-height: 120px;
+    overflow: hidden;
+}
+
+#bento-four{
+    grid-column: 1/5;
+    background: linear-gradient(220.55deg, #FFEB3A 0%, #4DEF8E 100%);
+    font-family: allcats;
+    text-align: center;
+    font-size: 5vw;
+    line-height: 120px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#listing-count{
+    padding-left: 40px;
+    padding-bottom: 10px;
+    font-size: 17px;
+    font-family: Roboto;
+    color: rgb(202, 202, 202);
+}
+
+#home-browsing-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: GSL;
+    letter-spacing: 2px;
+    padding: 20px 0px;
+    white-space: nowrap;
+}
+
+#home-browsing-title:after, #home-browsing-title:before {
+    content: '';
+    width: 190px;
+    height: 2px;
+    background: var(--main-color);
+    margin: 0 30px;
+  }
+
+.listing-section{
+    border-radius: 15px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listing-card{
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+    transition: box-shadow 0.1s ease;
+}
+
+.listing-card:hover{
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.192);
+}
+
+.listing-image{
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+    border-bottom: solid 2px black;
+}
+
+.listing-name{
+    margin: 10px;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 180px;
+    max-height: 23px;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 600;
+}
+
+.listing-price{
+    margin: 10px;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 600;
+}
+
+#form-panel{
+    background-color: white;
+    height: 550px;
+    width: 800px;
+    border-radius: 15px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
+#login-image{
+    width: 450px;
+    margin: auto;
+    overflow: hidden; 
+}
+
+#signup-image{
+    width: 350px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+    font-family: gsl;
+    padding: 10px 30px 20px 0;
+}
+
+#signup-form{
+    display: flex;
+    flex-direction: column;
+    font-family: gsl;
+    padding: 10px 30px 20px 0;
+}
+
+#login-form h1{
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 20px 20px 10px 20px;
+}
+
+#signup-form h1{
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 20px 20px 10px 20px;
+}
+
+#login-form h2{
+    font-size: 19px;
+    margin: 5px 0px;
+}
+
+#signup-form h2{
+    font-size: 19px;
+    margin: 5px 0px;
+}
+
+#login-form input{
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+    padding-left: 20px;
+    width: 100%;
+    height: 35px;
+    margin: 6px 0px;
+    border-radius: 2px 2px 0px 0px;
+}
+
+#tos{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+}
+
+#tos-checkbox{
+    margin-top: 8px !important;
+    height: 20px !important;
+    accent-color: var(--main-color);
+    text-decoration: none;
+}
+
+#tos-link{
+    color: var(--main-color);
+}
+
+#tos-link:hover{
+    color: var(--main-hover);
+}
+
+#signup-form input{
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+    padding-left: 20px;
+    width: 100%;
+    height: 35px;
+    margin: 6px 0px;
+    border-radius: 2px 2px 0px 0px;
+}
+
+#login-form input:focus{
+    border-bottom: 2px solid var(--main-color);
+    background-color: rgb(236, 236, 236);
+}
+
+#signup-form input:focus{
+    border-bottom: 2px solid var(--main-color);
+    background-color: rgb(236, 236, 236);
+}
+
+#login-form button{
+    margin: 15px 0px 5px 0px;
+}
+
+#signup-form button{
+    margin: 15px 0px 5px 0px;
+}
+
+#forgot-information{
+    font-family: GSM;
+    text-decoration: none;
+    color: var(--main-color);
+    text-align: left;
+    font-size: 13px;
+    transition: color 0.2s;
+    margin: 10px 0px;
+}
+
+#forgot-information:hover{
+    color: var(--main-hover);
+}
+
+#confirmation{
+    font-family: RL;
+    letter-spacing: 1px;
+    font-size: 20px;
+    width: 50%;
+    border: none;
+    align-self: center;
+    height: 45px;
+    background-color: var(--main-color);
+    border-radius: 10000px;
+    transition: background-color 0.2s;
+}
+
+#confirmation:hover{
+    background-color: var(--main-hover);
+}
+
+#no-account{
+    font-size: 18px;
+    text-align: center;
+}
+
+#signup-link{
+    color: var(--main-color);
+    transition: color 0.2s;
+    margin-left: 2px;
+}
+
+#signup-link:hover{
+    color: var(--main-hover)
+}
+
+#listing-information{
+    width: 70%;
+    height: 400px;
+    background-color: white;
+    margin: 50px auto;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 700px;
+    max-width: 50%;
+}
+
+#listing-info-image{
+    object-fit: fill;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+}
+
+#listing-info-list{
+    padding: 0px 15px 15px 0px;
+}
+
+#listing-title-info{
+    font-family: GSL;
+    margin-bottom: 8px;
+    color: var(--main-hover);
+    font: bolder;
+}
+
+#listing-price-info{
+    font-family: GSL;
+    margin: 10px auto;
+}
+
+#listing-condition-info{
+    font-family: GSL;
+    font-size: 17px;
+    margin: 0;
+}
+
+#listing-description-title-info{
+    margin: 10px 0px;
+    font-family: GSL;
+    color: var(--main-hover);
+    font: bolder;
+}
+
+#listing-description-info{
+    font-family: GSL;
+    margin-top: 10px;
+}
+
+#make-listing-form{
+    background-color: white;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+#edit-listing-form{
+    background-color: white;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+#make-content{
+    width: 70%;
+    margin: auto;
+}
+
+#make-content-title{
+    text-align: center;
+    font-family: GSL;
+    margin-top: 0px;
+}
+
+#make-listing-form h2{
+    font-family: GSL;
+    color: var(--main-hover);
+    margin-bottom: 7px;
+}
+
+#make-listing-form input{
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+    padding-left: 20px;
+    width: 100%;
+    height: 35px;
+    margin: 6px 0px;
+    border-radius: 4px;
+}
+
+#edit-listing-form input{
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+    padding-left: 20px;
+    width: 100%;
+    height: 35px;
+    margin: 6px 0px;
+    border-radius: 4px;
+}
+
+
+#make-listing-form input:focus{
+    border-bottom: 2px solid var(--main-color);
+    background-color: rgb(236, 236, 236);
+}
+
+#make-listing-form select{
+    margin-top: 10px;
+}
+
+#edit-listing-form h2{
+    font-family: GSL;
+    color: var(--main-hover);
+    margin-bottom: 7px;
+}
+
+#edit-listing-form input{
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+    padding-left: 20px;
+    width: 100%;
+    height: 35px;
+    margin: 6px 0px;
+    border-radius: 4px;
+}
+
+
+#edit-listing-form input:focus{
+    border-bottom: 2px solid var(--main-color);
+    background-color: rgb(236, 236, 236);
+}
+
+#make-listing-form select{
+    margin-top: 10px;
+}
+
+#make-description{
+    font-family: 'Helvetica', Arial, Lucida Grande, sans-serif;
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    margin-bottom: 10px;
+    outline: none;
+    width: 100%;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    resize: none;
+    border-radius: 4px 4px 0px 0px;
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+}
+
+#make-description:focus{
+    border-bottom: 2px solid var(--main-color);
+    background-color: rgb(236, 236, 236);
+}
+
+#make-choice{
+    display: flex;
+    justify-content: space-between;
+}
+
+#listing-confirmation{
+    width: 140px;
+    margin: auto;
+    font-family: RL;
+    letter-spacing: 1px;
+    font-size: 20px;
+    border: none;
+    height: 45px;
+    background-color: var(--main-color);
+    border-radius: 10000px;
+    transition: background-color 0.2s;
+}
+
+#listing-discard{
+    width: 140px;
+    margin: auto;
+    font-family: RL;
+    letter-spacing: 1px;
+    font-size: 20px;
+    border: none;
+    height: 45px;
+    color: white;
+    background-color: #dc3354;
+    border-radius: 10000px;
+    transition: background-color 0.2s;
+}
+
+#listing-confirmation:hover{
+    background-color: var(--main-hover);
+}
+
+#listing-discard:hover{
+    background-color: #b41746;
+}
+
+#confirmation-content{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 300px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px
+}
+
+#confirmation-title{
+    font-family: GSL;
+    margin: 15px auto;
+}
+
+#confirmation-logo{
+    margin: 15px auto;
+    height: 30%;
+}
+
+#confirmation-message{
+    font-family: GSL;
+    margin: 15px auto;
+    text-align: center;
+}
+
+#message-seller-form{
+    background-color: white;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+#message-seller-form h2{
+    font-family: GSL;
+    color: var(--main-hover);
+    margin-bottom: 2px;
+    margin-top: 4px;
+}
+
+#message-seller-form h3{
+    font-family: GSL;
+    color: black;
+    margin-bottom: 15px;
+    margin-top: 4px;
+}
+
+#make-message{
+    font-family: 'Helvetica', Arial, Lucida Grande, sans-serif;
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-bottom: 2px solid var(--main-hover);
+    margin-bottom: 10px;
+    outline: none;
+    width: 100%;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    resize: none;
+    border-radius: 4px 4px 0px 0px;
+    transition: border-bottom 0.5s;
+    transition: background-color 0.5s;
+}
+
+#make-message:focus{
+    border-bottom: 2px solid var(--main-color);
+    background-color: rgb(236, 236, 236);
+}
+
+#account-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-page a{
+    text-align: center;
+    line-height: 45px;
+    font-family: RL;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 17px;
+    width: 90%;
+    border: none;
+    align-self: center;
+    height: 45px;
+    background-color: var(--main-color);
+    border-radius: 10000px;
+    transition: background-color 0.2s;
+    margin: 20px 0;
+}
+
+.profile-page a:hover{
+    background-color: var(--main-hover);
+}
+
+#message-content{
+    width: 100%;
+    margin: auto;
+}
+
+#message-header{
+    width: 40%;
+    color: white;
+    margin: 40px auto 20px auto;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-family: GSL;
+    font-size: 30px;
+    border-radius: 20px;
+}
+
+#message-card{
+    width: 50%;
+    margin: 10px auto 30px auto;
+    background-color: white;
+    color: white;
+    font-family: GSL;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#message-listing{
+    margin-top: 5px;
+    font-size: 15px;
+    color: black;
+}
+
+#messenger{
+    margin-top:0;
+    margin-bottom: 5px;
+    color: var(--main-color);
+}
+
+#message-message{
+    color: black;
+    margin-top: 0px;
+}
+
+#purchase{
+    padding: 0 20px;
+    margin: auto;
+    font-family: RL;
+    letter-spacing: 1px;
+    font-size: 20px;
+    border: none;
+    height: 45px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+#purchase:hover{
+    background-color: var(--main-hover);
+}
+
+#view-listing{
+    font-family: RL;
+    letter-spacing: 1px;
+    font-size: 20px;
+    border: none;
+    align-self: center;
+    height: 45px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+#view-listing:hover{
+    background-color: var(--main-hover);
+}
+
+
+#field-reminder{
+    font-family: GSL;
+    color: black;
+}
